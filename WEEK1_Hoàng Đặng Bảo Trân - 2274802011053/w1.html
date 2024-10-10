@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồi Quy Tuyến Tính</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>CHIỀU CAO VÀ CÂN NẶNG CỦA SINH VIÊN VLU</h1>
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+        // Dữ liệu
+        const X = [180, 162, 183, 174, 160, 163, 180, 165, 175, 170, 170, 169, 168, 175, 169, 171, 155, 158, 175, 165];
+        const Y = [86, 55, 86.5, 70, 62, 54, 60, 72, 93, 89, 60, 82, 59, 75, 56, 89, 45, 60, 60, 72];
+
+        // Tính toán tham số hồi quy
+        const n = X.length;
+        const xMean = X.reduce((a, b) => a + b) / n;
+        const yMean = Y.reduce((a, b) => a + b) / n;
+
+        let numerator = 0;
+        let denominator = 0;
+
+        for (let i = 0; i < n; i++) {
+            numerator += (X[i] - xMean) * (Y[i] - yMean);
+            denominator += (X[i] - xMean) ** 2;
+        }
+
+        const theta1 = numerator / denominator;
+        const theta0 = yMean - theta1 * xMean;
+
+        // Tạo dữ liệu cho biểu đồ
+        const lineX = [150, 190];
+        const lineY = lineX.map(x => theta0 + theta1 * x);
+
+        // Vẽ biểu đồ
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: 'chiều cao và cân nặng',
+                    data: X.map((x, i) => ({ x: x, y: Y[i] })),
+                    backgroundColor: 'blue',
+                }, {
+                    label: 'Đường dự đoán',
+                    data: lineX.map((x, i) => ({ x: lineX[i], y: lineY[i] })),
+                    backgroundColor: 'red',
+                    showLine: true,
+                    borderColor: 'red',
+                    fill: false,
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Chiều cao'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Cân nặng'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
