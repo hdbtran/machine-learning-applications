@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Đoán Loại Thuốc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dự Đoán Loại Thuốc</h1>
+    <form id="drugForm">
+        <label for="age">Tuổi:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="sex">Giới tính:</label>
+        <select id="sex" name="sex" required>
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+        </select>
+
+        <label for="bp">Mức huyết áp:</label>
+        <select id="bp" name="bp" required>
+            <option value="normal">Bình thường</option>
+            <option value="high">Cao</option>
+            <option value="low">Thấp</option>
+        </select>
+
+        <label for="cholesterol">Mức cholesterol:</label>
+        <select id="cholesterol" name="cholesterol" required>
+            <option value="normal">Bình thường</option>
+            <option value="high">Cao</option>
+        </select>
+
+        <label for="na_to_k">Tỷ lệ Natri/Kali:</label>
+        <input type="number" id="na_to_k" name="na_to_k" required step="0.01">
+
+        <button type="submit">Dự Đoán</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('drugForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Lấy dữ liệu từ form
+            const age = parseFloat(document.getElementById('age').value);
+            const sex = document.getElementById('sex').value;
+            const bp = document.getElementById('bp').value;
+            const cholesterol = document.getElementById('cholesterol').value;
+            const na_to_k = parseFloat(document.getElementById('na_to_k').value);
+
+            // Giả lập dự đoán loại thuốc (thay thế bằng logic thực tế)
+            let predictedDrug = '';
+
+            if (age < 30 && sex === 'female' && bp === 'normal') {
+                predictedDrug = 'A';
+            } else if (age >= 30 && bp === 'high') {
+                predictedDrug = 'B';
+            } else {
+                predictedDrug = 'C';
+            }
+
+            // Hiển thị kết quả
+            document.getElementById('result').innerHTML = `Loại thuốc dự đoán: ${predictedDrug}`;
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Dự Đoán Cảm Xúc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .result {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            background: #eaeaea;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kết Quả Dự Đoán Cảm Xúc</h1>
+    <div class="result">
+        <h2>Độ chính xác</h2>
+        <p><strong>Bernoulli Naive Bayes:</strong> <span id="bernoulli-accuracy"></span></p>
+        <p><strong>Multinomial Naive Bayes:</strong> <span id="multinomial-accuracy"></span></p>
+
+        <h2>Báo cáo phân loại</h2>
+        <h3>Bernoulli Naive Bayes</h3>
+        <pre id="bernoulli-report"></pre>
+        
+        <h3>Multinomial Naive Bayes</h3>
+        <pre id="multinomial-report"></pre>
+    </div>
+
+    <script>
+        // Kết quả độ chính xác (thay đổi giá trị này theo kết quả thực tế)
+        const accuracyBernoulli = 0.85; // Thay đổi theo kết quả thực tế
+        const accuracyMultinomial = 0.90; // Thay đổi theo kết quả thực tế
+
+        // Báo cáo phân loại (thay đổi theo kết quả thực tế)
+        const reportBernoulli = `
+        precision    recall  f1-score   support
+
+       Negative       0.88      0.90      0.89        40
+       Positive       0.90      0.88      0.89        40
+
+    accuracy                           0.89        80
+   macro avg       0.89      0.89      0.89        80
+weighted avg       0.89      0.89      0.89        80
+        `;
+
+        const reportMultinomial = `
+        precision    recall  f1-score   support
+
+       Negative       0.87      0.92      0.89        40
+       Positive       0.91      0.86      0.89        40
+
+    accuracy                           0.89        80
+   macro avg       0.89      0.89      0.89        80
+weighted avg       0.89      0.89      0.89        80
+        `;
+
+        // Hiển thị kết quả lên trang web
+        document.getElementById('bernoulli-accuracy').innerText = accuracyBernoulli.toFixed(2);
+        document.getElementById('multinomial-accuracy').innerText = accuracyMultinomial.toFixed(2);
+        document.getElementById('bernoulli-report').innerText = reportBernoulli.trim();
+        document.getElementById('multinomial-report').innerText = reportMultinomial.trim();
+    </script>
+</body>
+</html>
