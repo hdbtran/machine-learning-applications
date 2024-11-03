@@ -1,4 +1,5 @@
 1.Công nghệ sử dụng: numpy,cvxopt, matplotlib.
+
 2.Thuật toán: SVM dùng để phân loại dữ liệu, tối ưu các tham số của bài toán phương trình.
 
 3.Hiển thị kết quả lên website
