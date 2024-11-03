@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả dự đoán Iris</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kết quả dự đoán và giá trị thực</h1>
+
+    <h2>Bảng Dự Đoán</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Dự đoán</th>
+                <th>Giá trị thực</th>
+            </tr>
+        </thead>
+        <tbody id="predictions-body">
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>Iris-setosa</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Bảng Giá Trị Thực</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Giá trị thực</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-versicolor</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-setosa</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+                <td>Iris-virginica</td>
+            </tr>
+            <tr>
+               
