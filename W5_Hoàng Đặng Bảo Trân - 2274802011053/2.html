@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả SVM và Tối ưu hóa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1.1em;
+            color: #333;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kết quả SVM và Tối ưu hóa</h1>
+    
+    <h2>Bảng kết quả tối ưu hóa</h2>
+    <table>
+        <tr>
+            <th>Iteration</th>
+            <th>pcost</th>
+            <th>dcost</th>
+            <th>gap</th>
+            <th>pres</th>
+            <th>dres</th>
+        </tr>
+        <tr><td>0</td><td>1.2279e+03</td><td>-1.3111e+04</td><td>1e+04</td><td>3e-14</td><td>9e-15</td></tr>
+        <tr><td>1</td><td>1.1798e+02</td><td>-1.5089e+03</td><td>2e+03</td><td>2e-14</td><td>8e-15</td></tr>
+        <tr><td>2</td><td>-2.2267e+02</td><td>-4.9527e+02</td><td>3e+02</td><td>7e-15</td><td>4e-15</td></tr>
+        <tr><td>3</td><td>-2.9686e+02</td><td>-4.0621e+02</td><td>1e+02</td><td>1e-14</td><td>5e-15</td></tr>
+        <tr><td>4</td><td>-3.0744e+02</td><td>-3.7129e+02</td><td>6e+01</td><td>1e-14</td><td>6e-15</td></tr>
+        <tr><td>5</td><td>-3.3295e+02</td><td>-3.4899e+02</td><td>2e+01</td><td>2e-16</td><td>7e-15</td></tr>
+        <tr><td>6</td><td>-3.4016e+02</td><td>-3.4210e+02</td><td>2e+00</td><td>2e-16</td><td>1e-14</td></tr>
+        <tr><td>7</td><td>-3.4089e+02</td><td>-3.4091e+02</td><td>2e-02</td><td>2e-16</td><td>1e-14</td></tr>
+        <tr><td>8</td><td>-3.4090e+02</td><td>-3.4090e+02</td><td>2e-04</td><td>1e-14</td><td>1e-14</td></tr>
+        <tr><td>9</td><td>-3.4090e+02</td><td>-3.4090e+02</td><td>2e-06</td><td>1e-14</td><td>9e-15</td></tr>
+        <tr><td>10</td><td>-3.4090e+02</td><td>-3.4090e+02</td><td>2e-08</td><td>3e-14</td><td>7e-15</td></tr>
+    </table>
+    <p><strong>Optimal solution found.</strong></p>
+
+    <h2>Hình ảnh kết quả</h2>
+    <img src="svm.png" alt="Hình ảnh kết quả SVM">
+</body>
+</html>

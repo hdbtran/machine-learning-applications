@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết Quả Mô Hình SVM</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; background-color: #f4f4f4; }
+        .results { margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #fff; max-width: 600px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        img { max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px; margin-top: 20px; }
+        .value { font-size: 1.1em; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Kết Quả Mô Hình SVM</h1>
+    
+    <div class="results">
+        <h2>Các Giá Trị Tính Toán Được</h2>
+        <p class="value"><strong>Lambda (λ):</strong> <span id="lambda"></span></p>
+        <p class="value"><strong>Vector Trọng Số (w):</strong> <span id="w"></span></p>
+        <p class="value"><strong>Bias (b):</strong> <span id="b"></span></p>
+        <p class="value"><strong>Biên (Margin):</strong> <span id="margin"></span></p>
+    </div>
+    
+    <h2>Đồ Thị SVM</h2>
+    <img src="svm_plot.png" alt="Đồ thị SVM">
+    
+    <script>
+        // Dữ liệu từ kết quả của mã Python
+        const lambda = [0.0, 1.0, 1.0];  // Kết quả lambda
+        const w = [1.0, 1.0];            // Vector w
+        const b = -3.0;                  // Giá trị của b
+        const margin = 1.4142;           // Giá trị margin
+
+        // Gán giá trị vào HTML
+        document.getElementById('lambda').innerText = `[${lambda.join(", ")}]`;
+        document.getElementById('w').innerText = `[${w.join(", ")}]`;
+        document.getElementById('b').innerText = b.toFixed(1);
+        document.getElementById('margin').innerText = margin.toFixed(4);
+    </script>
+</body>
+</html>
